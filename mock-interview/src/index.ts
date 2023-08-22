@@ -180,7 +180,11 @@ discordClient.on("messageCreate", async (msg) => {
           pairsStruct[x.role].en[x.typeOfInterview].push(x);
           return;
         }
-        pairsStruct[x.role][x.language][x.typeOfInterview].push(x);
+        if (x.role && x.language && x.typeOfInterview) {
+          pairsStruct[x.role][x.language][x.typeOfInterview].push(x);
+        } else {
+          console.error(x);
+        }
       });
       let answerLine = "";
 
