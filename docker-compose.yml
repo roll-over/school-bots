@@ -1,35 +1,14 @@
 services:
-  afisha-writer-app:
-    build: .
-    container_name: afisha-writer-app
-    command: npx nodemon /src/index.ts --watch ./src --ext .ts
+  mock-interview:
+    build: ./mock-interview
+    container_name: mock-interview
+    command: npx nodemon /mock-interview/src/index.ts --watch ./src --ext .ts
     restart: always
     volumes:
-      - ./src:/src
-      - ./state:/state
-      - ./tsconfig.json:/tsconfig.json
+      - ./mock-interview/src:/mock-interview/src
+      - ./tsconfig.json:/mock-interview/tsconfig.json
     env_file:
-      - .env
-  afisha-telegram-app:
-    build: ./telegram_afisha
-    container_name: afisha-telegram-app
-    command: npx nodemon /src/index.ts --watch ./src --ext .ts
-    restart: always
-    volumes:
-      - ./telegram_afisha/src:/src
-      - ./tsconfig.json:/tsconfig.json
-    env_file:
-      - .env
-  # mock-interview:
-  #   build: ./mock-interview
-  #   container_name: mock-interview
-  #   command: npx nodemon /mock-interview/src/index.ts --watch ./src --ext .ts
-  #   restart: always
-  #   volumes:
-  #     - ./mock-interview/src:/mock-interview/src
-  #     - ./tsconfig.json:/mock-interview/tsconfig.json
-  #   env_file:
-  #     - .env      
+      - .env      
   mongo:
     image: mongo
     container_name: mongo
@@ -38,12 +17,12 @@ services:
       - .env
     volumes:
       - './data:/data/db'
-  # mongo-express:
-  #   image: mongo-express
-  #   restart: always
-  #   ports:
-  #     - 7081:8081
-  #   depends_on:
-  #     - mongo      
-  #   env_file:
-  #     - .env
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 7081:8081
+    depends_on:
+      - mongo      
+    env_file:
+      - .env
