@@ -1,92 +1,149 @@
-# bots
+# OWS Events Afisha Writer
 
-
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.orby-tech.space/orby/bots.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.orby-tech.space/orby/bots/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+OWS Events Afisha Writer is a TypeScript project designed to automate the publication of events on various messengers and social platforms.
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+1. Make sure you have Node.js (version 20 and above) and npm (Node Package Manager) installed.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+2. Clone the repository:
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+```bash
+git clone https://github.com/your-username/ows-events-afisha-writer.git
+cd ows-events-afisha-writer
+```
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+3. Install the dependencies:
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+```bash
+npm install
+```
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+## Configuration
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+1. Create a `.env` file in the root directory of the project and fill it with the necessary environment variables:
+
+```env
+DISCORD_TOKEN=your_Discord_token
+TELEGRAM_TOKEN=your_Telegram_token
+MONGO_DB_URL=your_MongoDB_database_URL
+```
+
+2. Configure the `tsconfig.json` and `package.json` files according to your needs (e.g., ECMAScript version and dependencies).
+
+3. If needed, adjust the `tsconfig.json` for more specific TypeScript compilation settings.
+
+## Running the Application
+
+1. Start the MongoDB container:
+
+```bash
+docker-compose up -d mongo
+```
+
+2. Launch MongoDB Express (web client for MongoDB):
+
+```bash
+docker-compose up -d mongo-express
+```
+
+3. Run your application:
+
+```bash
+docker-compose up -d mock-interview
+```
+
+## Maintenance
+
+- To add new events and publish them on messengers, modify the code in the `src` directory of your project.
+
+- If you need to update dependencies, use the command:
+
+```bash
+npm update
+```
+
+## Contribution
+
+Feel free to contribute to the project's development. You can create pull requests or ask questions related to the project in the "Issues" section.
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+This project is distributed under the ISC License. Additional information can be found in the `LICENSE` file.
+
+---
+
+Конечно! Вот более детальное описание содержания `README` файла:
+
+# OWS Events Afisha Writer
+
+OWS Events Afisha Writer - это проект на TypeScript, предназначенный для автоматизации публикации событий на различных мессенджерах и социальных платформах.
+
+## Установка
+
+1. Убедитесь, что у вас установлен Node.js (версия 20 и выше) и npm (Node Package Manager).
+
+2. Клонируйте репозиторий:
+
+```bash
+git clone https://github.com/ваш-логин/ows-events-afisha-writer.git
+cd ows-events-afisha-writer
+```
+
+3. Установите зависимости:
+
+```bash
+npm install
+```
+
+## Настройка
+
+1. Создайте файл `.env` в корневой директории проекта и заполните его необходимыми переменными окружения:
+
+```env
+DISCORD_TOKEN=ваш_токен_Discord
+TELEGRAM_TOKEN=ваш_токен_Telegram
+MONGO_DB_URL=URL_вашей_MongoDB_базы_данных
+```
+
+2. Настройте файлы `tsconfig.json` и `package.json` согласно вашим потребностям (например, версию ECMAScript и зависимости).
+
+3. При необходимости настройте `tsconfig.json` для более специфических параметров компиляции TypeScript.
+
+## Запуск приложения
+
+1. Запустите контейнер MongoDB:
+
+```bash
+docker-compose up -d mongo
+```
+
+2. Запустите MongoDB Express (веб-клиент для MongoDB):
+
+```bash
+docker-compose up -d mongo-express
+```
+
+3. Запустите ваше приложение:
+
+```bash
+docker-compose up -d mock-interview
+```
+
+## Обслуживание
+
+- Чтобы добавить новые события и опубликовать их в мессенджерах, измените код в директории `src` вашего проекта.
+
+- Если необходимо обновить зависимости, используйте команду:
+
+```bash
+npm update
+```
+
+## Вклад
+
+Не стесняйтесь вносить свой вклад в развитие проекта. Вы можете создавать pull-запросы или задавать вопросы, связанные с проектом, в разделе "Issues".
+
+## Лицензия
+
+Этот проект распространяется под лицензией ISC. Дополнительную информацию можно найти в файле `LICENSE`.
