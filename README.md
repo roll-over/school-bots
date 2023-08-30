@@ -73,8 +73,6 @@ This project is distributed under the ISC License. Additional information can be
 
 ---
 
-Конечно! Вот более детальное описание содержания `README` файла:
-
 # OWS Events Afisha Writer
 
 OWS Events Afisha Writer - это проект на TypeScript, предназначенный для автоматизации публикации событий на различных мессенджерах и социальных платформах.
